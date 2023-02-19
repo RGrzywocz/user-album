@@ -1,115 +1,93 @@
 .center {
-    margin: auto;
-    width: 50%;
-    margin-top: 40vh;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
+  margin: auto;
+  width: 50%;
+  margin-top: 40vh;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .initials {
-    transform: rotate(180deg);
-    display: inline-block;
-    vertical-align: middle;
-  }
-  
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.initials {
+  transform: rotate(180deg);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
   .content {
-    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
   }
-  
-  .column {
-    flex-basis: 60%;
-    background-color: #e6e6e6;
-    padding:20px;
-    border-radius: 4px;
-  }
-  
-  .column.left {
-    margin-right: 5%;
-  }
-  
-  .user-info {
-    margin-bottom: 20px;
-  }
-  
-  .album-list {
-    margin-bottom: 20px;
-  }
-  
-  .album-list h2 {
-    margin-bottom: 10px;
-  }
-  
-  .album-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .album-list li {
-    margin-bottom: 5px;
-  }
-  
-  .album-list a {
-    cursor: pointer;
-  }
-  
-  .column.right table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .column.right td {
-    border: 1px solid #ccc;
-    padding: 5px;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-  }
+}
 
-  .albums{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.column {
+  flex-basis: 50%;
+  background-color: #e6e6e6;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 8px;
+}
 
-  .button{
-    margin-top: 5px;
-  }
+.user-info {
+  margin-bottom: 20px;
+}
 
-  .photo-tile{
-    width:20px;
-    height:20px;
-    margin:5px;
-  }
+.album-list {
+  margin-bottom: 20px;
+}
 
-  .paginator{
-    margin-top: 10px;
-  }
+.album-list h2 {
+  margin-bottom: 10px;
+}
 
-  .big-photo{
-    width:40px;
-    height:40px;
-  }
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.albums {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button {
+  margin-top: 5px;
+}
+
+.photo-tile {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+
+.paginator {
+  margin-top: 10px;
+}
+
+.big-photo {
+  width: 40px;
+  height: 40px;
+}

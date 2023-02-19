@@ -1,61 +1,60 @@
 <div *ngIf="dataLoaded">
 
-  <div *ngIf="!user">
-    <div class="center">
-      Nie istnieje użytkownik o ID = {{userId}}
-      <button class="back-button" type="button" (click)="navigateToUserSearch()" mat-raised-button color="primary">
-        Wróć do szukania użytkownika
-      </button>
-    </div>
+  <div *ngIf="!user" class="center">
+    Nie istnieje użytkownik o ID = {{userId}}
+    <button class="back-button" type="button" (click)="navigateToUserSearch()" mat-raised-button color="primary">
+      Wróć do szukania użytkownika
+    </button>
   </div>
-  
+
   <div *ngIf="user">
-  <div class="container">
-    <div class="header">
-      <h1 class="initials">Witaj ponownie {{ userInitials }}!</h1>
-    </div>
-    <div class="content">
-      <div class="column left">
-        <div class="user-info">
-          <p>Inicjały: {{ userInitials }}</p>
-          <p>Użytkownik: {{ user.name }}</p>
-          <p>Adres: {{ user.address.street }} {{ user.address.suite }}</p>
-          <p>Miasto: {{ user.address.city }}</p>
-        </div>
-
-
-        <div class="albums">
-          <h2>Albumy:</h2>
-          <div *ngFor="let album of displayedAlbums" class="albums">
-            <button class="button" type="button" (click)="chooseAlbum(album.id)" mat-raised-button
-              color="primary">{{album.title}}</button>
-          </div>
-          <mat-paginator class="paginator" #paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
-            (page)="pageEvent = setAlbums($event)">
-          </mat-paginator>
-        </div>
-
+    <div class="container">
+      <div class="header">
+        <h1 class="initials">Witaj ponownie {{ userInitials }}!</h1>
       </div>
-      <div class="column right">
-        <div *ngIf="chosenAlbumId">
-          <h2>Wybrany album: <i>{{chosenAlbumTitle}}</i></h2>
+      <div class="content">
+        <div class="column left">
+          <div class="user-info">
+            <p>Inicjały: {{ userInitials }}</p>
+            <p>Użytkownik: {{ user.name }}</p>
+            <p>Adres: {{ user.address.street }} {{ user.address.suite }}</p>
+            <p>Miasto: {{ user.address.city }}</p>
+          </div>
 
-          <div class="photos">
-            <h2>Zdjęcia:</h2>
-            <div *ngFor="let photo of photosToDisplay" class="albums">
-              <button class="button" type="button" (click)="addPhoto(photo)" mat-raised-button
-                color="primary">{{photo.title}}</button>
+
+          <div class="albums">
+            <h2>Albumy:</h2>
+            <div *ngFor="let album of displayedAlbums" class="albums">
+              <button class="button" type="button" (click)="chooseAlbum(album.id)" mat-raised-button
+                color="primary">{{album.title}}</button>
             </div>
-            <mat-paginator class="paginator" #paginator [length]="photoLength" [pageIndex]="photoPageIndex" [pageSize]="photoPageSize"
-              (page)="pageEvent = setPhotos($event)">
+            <mat-paginator class="paginator" #paginator [length]="albumLength" [pageIndex]="albumPageIndex"
+              [pageSize]="albumPageSize" (page)="pageEvent = paginateAlbums($event)">
             </mat-paginator>
           </div>
+
+        </div>
+        <div class="column right">
+          <div *ngIf="chosenAlbumId">
+            <h2>Wybrany album: <i>{{chosenAlbumTitle}}</i></h2>
+
+            <div class="photos">
+              <h2>Zdjęcia:</h2>
+              <div *ngFor="let photo of photosToDisplay" class="albums">
+                <button class="button" type="button" (click)="addPhoto(photo)" mat-raised-button
+                  color="primary">{{photo.title}}</button>
+              </div>
+              <mat-paginator class="paginator" #paginator [length]="photoLength" [pageIndex]="photoPageIndex"
+                [pageSize]="photoPageSize" (page)="pageEvent = paginatePhotos($event)">
+              </mat-paginator>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div  class="photos">
-      <img *ngFor="let photo of chosenPhotos; let i = index" (click)="togglePhoto($event, i)" class="photo-tile" src="{{photo.url}}">
+      <div class="photos">
+        <img *ngFor="let photo of chosenPhotos; let i = index" (click)="clickPhoto($event, i)" class="photo-tile"
+          src="{{photo.url}}">
+      </div>
     </div>
   </div>
-</div>
 </div>

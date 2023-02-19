@@ -31,5 +31,4 @@ export class UserSearchComponent implements OnInit {
     this.router.navigate([`user/${Number(this.name.value)}`])
   }
 
-
 }
