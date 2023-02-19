@@ -1,0 +1,26 @@
+.center {
+    margin: auto;
+    width: 50%;
+    margin-top: 40vh;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+input{
+    font-size: 40px;
+}
+button{
+    
+    margin-left: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 25px;
+}
+
+.label-button{
+    display: flex;
+    
+    align-items: center;
+}

@@ -1,0 +1,26 @@
+<div>
+  <div class="center">
+    <div class="label-button">
+      <mat-form-field class="example-form-field">
+        <mat-label>User ID</mat-label>
+        <input matInput id="name" type="text" [formControl]="name">
+      </mat-form-field>
+
+      <button class="search-button" type="button" (click)="submitUserIdForm()" mat-raised-button
+        [color]="name.invalid?'disabled':'primary'" [disabled]="name.invalid">Szukaj</button>
+    </div>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+      <div *ngIf="name.errors?.['required']">
+        Wypełnij ID użytkownika.
+      </div>
+
+      <div *ngIf="name.errors?.['pattern']">
+        ID użytkownika powinno być liczbą całkowitą.
+      </div>
+
+      <div *ngIf="name.errors?.['min']">
+        ID użytkownika powinno być większe od 0.
+      </div>
+    </div>
+  </div>
+</div>
